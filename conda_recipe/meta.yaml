@@ -9,6 +9,7 @@ source:
 build:
   # preserve egg dir since we have compiled code
   preserve_egg_dir: yes
+  script: python setup.py install
 
 requirements:
   build:
