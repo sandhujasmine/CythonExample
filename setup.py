@@ -68,5 +68,8 @@ setup(name=pkg_name,
                 'cleandev': cleandev},
       version='0.1',
       description='This is a demo package',
+      author="Jasmine Sandhu",
+      author_email="jsandhu@continuum.io",
+      url= "https://github.com/sandhujasmine/CythonExample",
       ext_modules=exts,
       packages=find_packages())
