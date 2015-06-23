@@ -26,7 +26,7 @@ class cleandev(clean):
     def run(self):
         # call base class clean
         clean.run(self)
-        dirs = ['build', pkg_name + '.egg-info']
+        dirs = ['build', pkg_name + '.egg-info', 'dist']
         for d in dirs:
             try:
                 d_full = os.path.join(base, d)
@@ -63,6 +63,10 @@ exts.append(Extension("polygon.cy_polygon",
                                     lib_poly_dir]
                       ))
 
+# tested on Mac OSX (10.10.3), with setuptools 17.1.1, py27_0 
+# zip_safe flag below is ignored - so install using the install_egg_info command
+# need egg-info folder since package contains compiled code
+# ./setup.py install_egg_info 
 setup(name=pkg_name,
       cmdclass={'build_ext': build_ext,
                 'cleandev': cleandev},
@@ -72,4 +76,5 @@ setup(name=pkg_name,
       author_email="jsandhu@continuum.io",
       url= "https://github.com/sandhujasmine/CythonExample",
       ext_modules=exts,
-      packages=find_packages())
+      packages=find_packages(),
+      zip_safe=False)

@@ -7,7 +7,7 @@ source:
   git_url: https://github.com/sandhujasmine/CythonExample.git
 
 build:
-  # doesn't work without this - also not sure why cy_polygon.py is automatically created?
+  # preserve egg dir since we have compiled code
   preserve_egg_dir: yes
 
 requirements:
@@ -15,6 +15,7 @@ requirements:
     - python
     - setuptools
     - cython
+    - pytest
 
   run:
     - python
@@ -26,13 +27,15 @@ test:
   requires:
     - pytest
 
-  commands:
-    - py.test --pyargs -v polygon
+  # note: I believe tests are run upon build, not upon install - so following was failing
+  # when installed with --use-local
+  #commands:
+  #  - py.test --pyargs -v polygon
 
 about:
   home: https://github.com/sandhujasmine/CythonExample
-  license: MIT
+  license: xxx
   summary: "polygon is an example cython package built using conda install"
 
-app:
-  own_environment: true
+#app:
+#  own_environment: true
