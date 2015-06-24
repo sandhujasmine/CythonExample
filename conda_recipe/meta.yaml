@@ -3,7 +3,8 @@ package:
   version: 0.1
 
 source:
-  git_tag: v0.1
+  # this should break - repro error due to linking against incorrect libcurl version
+  git_tag: v0.2
   git_url: https://github.com/sandhujasmine/CythonExample.git
 
 build:
