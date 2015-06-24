@@ -1,6 +1,6 @@
 package:
   name: polygon
-  version: 0.1
+  version: 0.2
 
 source:
   # this should break - repro error due to linking against incorrect libcurl version
