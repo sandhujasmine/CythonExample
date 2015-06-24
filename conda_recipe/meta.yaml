@@ -17,9 +17,11 @@ requirements:
     - setuptools
     - cython
     - pytest
+    - netcdf4   # only for testing
 
   run:
     - python
+    - netcdf4   # only for testing
 
 test:
   imports:

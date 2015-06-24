@@ -54,13 +54,16 @@ class cleandev(clean):
 #                   include_dirs=[os.path.join(base, 'lib_polygons')],
 #                   )]
 #===============================================================================
+
 exts = []
 exts.append(Extension("polygon.cy_polygon",
                       [os.path.join(lib_poly_dir, 'polygon.cpp'),
                        os.path.join(cy_poly_dir, 'cy_polygon.pyx')],
                       language="c++",
                       include_dirs=[os.path.join(base, 'polygon'),
-                                    lib_poly_dir]
+                                    lib_poly_dir],
+                      # add external libraries for testing only
+                      libraries=['z', 'curl'],
                       ))
 
 # tested on Mac OSX (10.10.3), with setuptools 17.1.1, py27_0 
@@ -76,5 +79,5 @@ setup(name=pkg_name,
       author_email="jsandhu@continuum.io",
       url= "https://github.com/sandhujasmine/CythonExample",
       ext_modules=exts,
-      packages=find_packages(),
+      packages=['polygon'],
       zip_safe=False)
