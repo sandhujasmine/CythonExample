@@ -23,6 +23,8 @@ requirements:
   run:
     - python
     - netcdf4   # only for testing
+    - ipython   # also for testing
+    - pytest    # for testing
 
 test:
   imports:
@@ -40,6 +42,3 @@ about:
   home: https://github.com/sandhujasmine/CythonExample
   license: xxx
   summary: "polygon is an example cython package built using conda install"
-
-#app:
-#  own_environment: true
