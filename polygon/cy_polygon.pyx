@@ -63,9 +63,6 @@ cdef class CyRectangle(CyPolygon):
 
     def __dealloc__(self):
         del self.poly
- 
-    def area(self):
-        return self.poly.area()
 
 
 cdef class CyTriangle(CyPolygon):
