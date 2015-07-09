@@ -19,5 +19,21 @@ install:
   - conda create -n test-environment python=$TRAVIS_PYTHON_VERSION pytest cython
   - source activate test-environment
 
-  # Install Blaze
+  # Install coveralls
+  - pip install coveralls
+
+  # Install polygon example
   - python setup.py install
+
+script:
+  - echo '[pytest]' > pytest.ini
+  - echo 'addopts = -vv -r sxX polygon'
+  - coverage run --include='polygon/*' $(which py.test)
+  - coverage report --show-missing 
+
+after_success:
+    - coveralls
+
+notifications:
+    email: 
+        - jsandhu@continuum.io
