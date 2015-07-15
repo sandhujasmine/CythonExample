@@ -28,7 +28,7 @@ install:
 script:
   - echo '[pytest]' > pytest.ini
   - echo 'addopts = -vv -r sxX' >> pytest.ini
-  - py.test --pyargs polygon
+  - py.test
   #- coverage run $(which py.test)
   #- coverage report --show-missing 
 
