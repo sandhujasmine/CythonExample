@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 from pytest import mark
 
 from polygon.cy_polygon import CyRectangle, CyTriangle
