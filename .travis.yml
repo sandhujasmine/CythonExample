@@ -20,7 +20,7 @@ install:
   - source activate test-environment
 
   # Install coveralls
-  - pip install coveralls
+  #- pip install coveralls
 
   # Install polygon example
   - python setup.py install
@@ -28,11 +28,12 @@ install:
 script:
   - echo '[pytest]' > pytest.ini
   - echo 'addopts = -vv -r sxX --pyargs polygon' >> pytest.ini
-  - coverage run $(which py.test)
-  - coverage report --show-missing 
+  - py.test --pyargs polygon
+  #- coverage run $(which py.test)
+  #- coverage report --show-missing 
 
-after_success:
-    - coveralls
+#after_success:
+#    - coveralls
 
 notifications:
     email: 
