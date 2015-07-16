@@ -1,5 +1,7 @@
 # CythonExample #
 
+[![Build Status](https://travis-ci.org/sandhujasmine/CythonExample.svg?branch=master)](https://travis-ci.org/sandhujasmine/CythonExample)
+
 Example of C++ wrapped by cython and built using setup.py. Create a conda
 environment and use conda to install dependencies.
 
