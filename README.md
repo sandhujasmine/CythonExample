@@ -59,8 +59,8 @@ $ conda develop --no-pth-file . # does not add path to conda.pth but does correc
 
 ## Testing ##
 
-run ./polygon/test_polygon.py to test
+run ./tests/test_polygon.py to test
 
 ```sh
-$ py.test -v ./polygon/test_polygon.py  # test
+$ py.test -v ./tests/test_polygon.py  # test
 ```
