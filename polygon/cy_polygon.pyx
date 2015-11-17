@@ -6,10 +6,10 @@ cdef extern from "polygon.h":
         int get_height()
         int area()
 
-    
+
     cdef cppclass Rectangle(Polygon):
         Rectangle() except +
-    
+
 
     cdef cppclass Triangle(Polygon):
         Triangle() except +
@@ -17,7 +17,7 @@ cdef extern from "polygon.h":
 
 cdef class CyPolygon(object):
     """
-    follow the class heirarchy of C++ 
+    follow the class heirarchy of C++
     """
     cdef Polygon * poly
 
@@ -31,8 +31,9 @@ cdef class CyPolygon(object):
 
     def __init__(self, int width, int height):
         '''
-        again, CyPolygon is a base class and should not be instantiated. It keeps track of common code.
-        Could put a check in before invoking self.poly so program doesn't crash. For now, just document it
+        again, CyPolygon is a base class and should not be instantiated.
+        It keeps track of common code. Could put a check in before invoking
+        self.poly so program doesn't crash. For now, just document it
         and user beware.
 
         This is just for testing.
@@ -59,7 +60,7 @@ cdef class CyPolygon(object):
 
 cdef class CyRectangle(CyPolygon):
     def __cinit__(self):
-        self.poly = new Rectangle() 
+        self.poly = new Rectangle()
 
     def __dealloc__(self):
         del self.poly
@@ -67,9 +68,7 @@ cdef class CyRectangle(CyPolygon):
 
 cdef class CyTriangle(CyPolygon):
     def __cinit__(self):
-        self.poly = new Triangle() 
+        self.poly = new Triangle()
 
     def __dealloc__(self):
         del self.poly
- 
-    
