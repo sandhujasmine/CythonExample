@@ -10,6 +10,7 @@ from distutils.extension import Extension
 # so it autogenerates the C++ code before compiling
 # look into cythonize as well - may require building libpolygon separately
 from Cython.Distutils import build_ext
+import versioneer
 
 
 base = path.dirname(__file__)
@@ -74,7 +75,8 @@ setup(name=pkg_dir,
       cmdclass={'build_ext': build_ext,
                 'clean': cleandev},
       entry_points={'console_scripts': ['hello = polygon:hello_polygon']},
-      version='0.2',
+      version=versioneer.get_version(),
+      cmdclass=versioneer.get_cmdclass(),
       description='introduce build error in demo package',
       author="Jasmine Sandhu",
       author_email="jsandhu@continuum.io",
