@@ -71,12 +71,12 @@ exts.append(Extension("polygon.cy_polygon",
 
 # tested on Mac OSX (10.10.3), with setuptools 17.1.1, py27_0
 # need egg-info folder since package contains compiled code
+cmd_class = {'build_ext': build_ext, 'clean': cleandev}
+cmd_class.update(versioneer.get_cmdclass())
 setup(name=pkg_dir,
-      cmdclass={'build_ext': build_ext,
-                'clean': cleandev},
+      cmdclass=cmd_class,
       entry_points={'console_scripts': ['hello = polygon:hello_polygon']},
       version=versioneer.get_version(),
-      cmdclass=versioneer.get_cmdclass(),
       description='introduce build error in demo package',
       author="Jasmine Sandhu",
       author_email="jsandhu@continuum.io",
