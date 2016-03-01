@@ -7,5 +7,5 @@ def hello_polygon():
     """
     add this for testing
     """
-    print("hello_polygon")
+    print("hello_polygon -- adding a test")
 
