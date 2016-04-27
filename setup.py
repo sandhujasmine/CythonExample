@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import sys
 from os import remove, path
 import shutil
 
@@ -58,6 +59,12 @@ class cleandev(clean):
 #                   )]
 #===============================================================================
 
+if sys.platform == 'win32':
+    libs = []
+else:
+    libs = ['z', 'curl']
+
+
 exts = []
 exts.append(Extension("polygon.cy_polygon",
                       [path.join(lib_poly_dir, 'polygon.cpp'),
@@ -66,7 +73,7 @@ exts.append(Extension("polygon.cy_polygon",
                       include_dirs=[path.join(base, 'polygon'),
                                     lib_poly_dir],
                       # add external libraries for testing only
-                      libraries=['z', 'curl'],
+                      libraries=libs,
                       ))
 
 # tested on Mac OSX (10.10.3), with setuptools 17.1.1, py27_0
