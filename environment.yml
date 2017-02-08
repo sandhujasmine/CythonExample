@@ -1,0 +1,7 @@
+name: cy_example
+
+dependencies:
+    - python=2.7
+    - cython
+    - netcdf4
+    - pytest 

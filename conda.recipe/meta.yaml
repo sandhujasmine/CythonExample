@@ -1,0 +1,44 @@
+package:
+  name: polygon
+  version: {{environ.get('GIT_DESCRIBE_TAG', 'v0.2')}}
+  #version: {{environ.get('GIT_DESCRIBE_TAG', '')}}
+
+source:
+  # this should break - repro error due to linking against incorrect libcurl version
+  path: ../
+
+build:
+  number: {{environ.get('GIT_DESCRIBE_NUMBER', 0)}}
+  # preserve egg dir since we have compiled code
+  preserve_egg_dir: yes
+  script: python setup.py install
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - cython
+    - pytest
+    - netcdf4   # only for testing
+
+  run:
+    - python
+    - netcdf4   # only for testing
+    - ipython   # also for testing
+    - pytest    # for testing
+
+test:
+  imports:
+    - polygon
+   
+  requires:
+    - pytest
+
+  # Not sure how to run tests that are not part of the package
+  #commands:
+  #  - py.test -v ../tests/
+  
+about:
+  home: https://github.com/sandhujasmine/CythonExample
+  license: xxx
+  summary: "polygon is an example cython package built using conda install"
