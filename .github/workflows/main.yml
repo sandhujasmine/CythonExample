@@ -22,7 +22,8 @@ jobs:
           echo "GITHUB_EVENT_PATH:$GITHUB_EVENT_PATH"
           echo "GITHUB_WORKSPACE:$GITHUB_WORKSPACE"
           echo
-          echo "current_branch:${GITHUB_REF##*/}"
+          echo "current_branch:${GITHUB_HEAD_REF##*/}"
+          echo "base_branch:${GITHUB_BASE_REF##*/}"
 
       - name: Print complete webhook event payload
         run: cat $GITHUB_EVENT_PATH
